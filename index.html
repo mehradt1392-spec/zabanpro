@@ -1,102 +1,53 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="ZabanPro - یادگیری زبان با مسیر آموزشی، آزمون تعیین سطح، تلفظ و تمرین">
-
-    <title>ZabanPro | آموزش زبان</title>
+    <title>ZabanPro | آموزش زبان باهوش</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<header class="header">
 
-<!-- =========================
-     HEADER
-========================= -->
+    <div class="logo">
+        ZabanPro
+    </div>
 
-<header>
-
-    <a href="#home" class="logo">
-        Zaban<span>Pro</span>
-    </a>
-
-    <nav class="nav">
-
-        <a href="#languages">
-            زبان‌ها
-        </a>
-
-        <a href="#quiz">
-            تعیین سطح
-        </a>
-
-        <a href="#learning">
-            مسیر یادگیری
-        </a>
-
-        <a href="#pronunciation-section">
-            تلفظ
-        </a>
-
-        <a href="#exercises">
-            تمرین‌ها
-        </a>
-
+    <nav>
+        <a href="#languages">زبان‌ها</a>
+        <a href="#learning">یادگیری</a>
+        <a href="#progress">پیشرفت</a>
     </nav>
-
-    <button
-        class="menu-button"
-        onclick="toggleMenu()">
-
-        ☰
-
-    </button>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
 <main>
 
-<section id="home" class="hero">
+<section class="hero">
 
     <div class="hero-content">
 
-        <div class="badge">
-            🌍 یادگیری زبان، ساده و مرحله‌به‌مرحله
-        </div>
+        <span class="badge">
+            🌍 آموزش هوشمند زبان
+        </span>
 
         <h1>
-            Zaban<span>Pro</span>
+            زبان جدیدت را
+            <span>شروع کن</span>
         </h1>
 
-        <h2>
-            زبان جدیدت را از همین امروز شروع کن
-        </h2>
-
         <p>
-            زبان مورد علاقه‌ات را انتخاب کن،
-            سطح خودت را بسنج و یک مسیر آموزشی
-            متناسب با سطح خودت شروع کن.
+            زبانت را انتخاب کن، سطح خودت را پیدا کن
+            و قدم‌به‌قدم یاد بگیر.
         </p>
 
-        <a
-            href="#languages"
-            class="primary-button">
-
-            🚀 شروع یادگیری
-
+        <a href="#languages" class="main-button">
+            شروع یادگیری 🚀
         </a>
 
     </div>
@@ -104,1052 +55,69 @@
 </section>
 
 
-<!-- =========================
-     LANGUAGES
-========================= -->
-
-<section id="languages">
+<section id="languages" class="section">
 
     <div class="section-title">
 
+        <span>🌍</span>
+
         <h2>
-            🌍 زبان مورد علاقه‌ات را انتخاب کن
+            زبان آموزشی را انتخاب کن
         </h2>
 
         <p>
-            یکی از زبان‌های موجود را انتخاب کن
-            تا آموزش، تلفظ و تمرین‌های همان زبان
-            برایت فعال شود.
+            هر زبان مسیر یادگیری و پیشرفت جداگانه دارد.
         </p>
 
     </div>
 
-
-    <div class="language-grid">
-
-
-        <div
-            class="language-card active"
-            data-language="english"
-            onclick="selectLanguage('english')">
-
-            <div class="language-flag">
-                🇬🇧
-            </div>
-
-            <h3>انگلیسی</h3>
-
-            <small>
-                English
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="spanish"
-            onclick="selectLanguage('spanish')">
-
-            <div class="language-flag">
-                🇪🇸
-            </div>
-
-            <h3>اسپانیایی</h3>
-
-            <small>
-                Español
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="french"
-            onclick="selectLanguage('french')">
-
-            <div class="language-flag">
-                🇫🇷
-            </div>
-
-            <h3>فرانسوی</h3>
-
-            <small>
-                Français
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="german"
-            onclick="selectLanguage('german')">
-
-            <div class="language-flag">
-                🇩🇪
-            </div>
-
-            <h3>آلمانی</h3>
-
-            <small>
-                Deutsch
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="italian"
-            onclick="selectLanguage('italian')">
-
-            <div class="language-flag">
-                🇮🇹
-            </div>
-
-            <h3>ایتالیایی</h3>
-
-            <small>
-                Italiano
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="portuguese"
-            onclick="selectLanguage('portuguese')">
-
-            <div class="language-flag">
-                🇵🇹
-            </div>
-
-            <h3>پرتغالی</h3>
-
-            <small>
-                Português
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="russian"
-            onclick="selectLanguage('russian')">
-
-            <div class="language-flag">
-                🇷🇺
-            </div>
-
-            <h3>روسی</h3>
-
-            <small>
-                Русский
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="arabic"
-            onclick="selectLanguage('arabic')">
-
-            <div class="language-flag">
-                🇸🇦
-            </div>
-
-            <h3>عربی</h3>
-
-            <small>
-                العربية
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="turkish"
-            onclick="selectLanguage('turkish')">
-
-            <div class="language-flag">
-                🇹🇷
-            </div>
-
-            <h3>ترکی</h3>
-
-            <small>
-                Türkçe
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="japanese"
-            onclick="selectLanguage('japanese')">
-
-            <div class="language-flag">
-                🇯🇵
-            </div>
-
-            <h3>ژاپنی</h3>
-
-            <small>
-                日本語
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="korean"
-            onclick="selectLanguage('korean')">
-
-            <div class="language-flag">
-                🇰🇷
-            </div>
-
-            <h3>کره‌ای</h3>
-
-            <small>
-                한국어
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="chinese"
-            onclick="selectLanguage('chinese')">
-
-            <div class="language-flag">
-                🇨🇳
-            </div>
-
-            <h3>چینی</h3>
-
-            <small>
-                中文
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="dutch"
-            onclick="selectLanguage('dutch')">
-
-            <div class="language-flag">
-                🇳🇱
-            </div>
-
-            <h3>هلندی</h3>
-
-            <small>
-                Nederlands
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="swedish"
-            onclick="selectLanguage('swedish')">
-
-            <div class="language-flag">
-                🇸🇪
-            </div>
-
-            <h3>سوئدی</h3>
-
-            <small>
-                Svenska
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="greek"
-            onclick="selectLanguage('greek')">
-
-            <div class="language-flag">
-                🇬🇷
-            </div>
-
-            <h3>یونانی</h3>
-
-            <small>
-                Ελληνικά
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="hindi"
-            onclick="selectLanguage('hindi')">
-
-            <div class="language-flag">
-                🇮🇳
-            </div>
-
-            <h3>هندی</h3>
-
-            <small>
-                हिन्दी
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="polish"
-            onclick="selectLanguage('polish')">
-
-            <div class="language-flag">
-                🇵🇱
-            </div>
-
-            <h3>لهستانی</h3>
-
-            <small>
-                Polski
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="ukrainian"
-            onclick="selectLanguage('ukrainian')">
-
-            <div class="language-flag">
-                🇺🇦
-            </div>
-
-            <h3>اوکراینی</h3>
-
-            <small>
-                Українська
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="hebrew"
-            onclick="selectLanguage('hebrew')">
-
-            <div class="language-flag">
-                🇮🇱
-            </div>
-
-            <h3>عبری</h3>
-
-            <small>
-                עברית
-            </small>
-
-        </div>
-
-
-        <div
-            class="language-card"
-            data-language="persian"
-            onclick="selectLanguage('persian')">
-
-            <div class="language-flag">
-                🇮🇷
-            </div>
-
-            <h3>فارسی</h3>
-
-            <small>
-                فارسی
-            </small>
-
-        </div>
-
-    </div>
-
-
-    <div
-        id="selectedLanguage"
-        class="selected-language">
-
-        🇬🇧 زبان انتخاب‌شده:
-        انگلیسی — آزمون تعیین سطح آماده است.
-
-    </div>
+    <div id="languageGrid" class="language-grid"></div>
 
 </section>
 
 
-<!-- =========================
-     FEATURES
-========================= -->
+<section id="learning" class="section learning-section">
 
-<section class="features-section">
-
-    <div class="section-title">
-
-        <h2>
-            امکانات ZabanPro
-        </h2>
-
-        <p>
-            همه ابزارهای اصلی یادگیری زبان
-            در یک محیط ساده.
-        </p>
-
+    <div id="selectedLanguage" class="selected-language">
+        هنوز زبانی انتخاب نشده
     </div>
 
-
-    <div class="feature-grid">
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                🎯
-            </div>
-
-            <h3>
-                آزمون تعیین سطح
-            </h3>
-
-            <p>
-                با آزمون چندسؤالی سطح فعلی
-                خودت را پیدا کن.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                📚
-            </div>
-
-            <h3>
-                مسیر یادگیری
-            </h3>
-
-            <p>
-                از A1 تا C2 قدم‌به‌قدم
-                پیش برو.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                🗣️
-            </div>
-
-            <h3>
-                تلفظ
-            </h3>
-
-            <p>
-                کلمات را بشنو و تلفظشان
-                را تمرین کن.
-            </p>
-
-        </div>
-
-
-        <div class="feature-card">
-
-            <div class="feature-icon">
-                📝
-            </div>
-
-            <h3>
-                تمرین و امتحان
-            </h3>
-
-            <p>
-                دانسته‌هایت را با تمرین‌های
-                مختلف آزمایش کن.
-            </p>
-
-        </div>
-
-    </div>
+    <div id="learningPanel"></div>
 
 </section>
 
 
-<!-- =========================
-     LEARNING PATH
-========================= -->
-
-<section id="learning">
+<section id="progress" class="section">
 
     <div class="section-title">
 
-        <h2>
-            📚 مسیر یادگیری
-        </h2>
-
-        <p>
-            یادگیری از پایه شروع می‌شود و
-            مرحله‌به‌مرحله تا سطح پیشرفته ادامه پیدا می‌کند.
-        </p>
-
-    </div>
-
-
-    <div class="learning-path">
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                A1
-            </div>
-
-            <h3>
-                مبتدی
-            </h3>
-
-            <p>
-                کلمات و جمله‌های پایه
-            </p>
-
-        </div>
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                A2
-            </div>
-
-            <h3>
-                پایه
-            </h3>
-
-            <p>
-                مکالمات روزمره
-            </p>
-
-        </div>
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                B1
-            </div>
-
-            <h3>
-                متوسط
-            </h3>
-
-            <p>
-                مکالمه و گرامر بیشتر
-            </p>
-
-        </div>
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                B2
-            </div>
-
-            <h3>
-                متوسط بالا
-            </h3>
-
-            <p>
-                ارتباط روان‌تر
-            </p>
-
-        </div>
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                C1
-            </div>
-
-            <h3>
-                پیشرفته
-            </h3>
-
-            <p>
-                زبان حرفه‌ای
-            </p>
-
-        </div>
-
-
-        <div class="level-card">
-
-            <div class="level-number">
-                C2
-            </div>
-
-            <h3>
-                تسلط
-            </h3>
-
-            <p>
-                نزدیک به تسلط کامل
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     DASHBOARD
-========================= -->
-
-<section>
-
-    <div class="section-title">
+        <span>📊</span>
 
         <h2>
-            📊 وضعیت یادگیری
+            پیشرفت من
         </h2>
 
-        <p>
-            پیشرفت آزمون و یادگیری خودت را دنبال کن.
-        </p>
-
     </div>
 
-
-    <div class="dashboard">
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div>
-                    <div class="stat-title">
-                        زبان فعلی
-                    </div>
-
-                    <div
-                        id="dashboardLanguage"
-                        class="stat-value">
-
-                        انگلیسی
-
-                    </div>
-                </div>
-
-                <div class="stat-icon">
-                    🌍
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div>
-
-                    <div class="stat-title">
-                        امتیاز آزمون
-                    </div>
-
-                    <div
-                        id="dashboardScore"
-                        class="stat-value">
-
-                        0
-
-                    </div>
-
-                </div>
-
-                <div class="stat-icon">
-                    🎯
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-            <div class="stat-top">
-
-                <div>
-
-                    <div class="stat-title">
-                        پیشرفت
-                    </div>
-
-                    <div
-                        id="dashboardProgress"
-                        class="stat-value">
-
-                        0%
-
-                    </div>
-
-                </div>
-
-                <div class="stat-icon">
-                    📈
-                </div>
-
-            </div>
-
-
-            <div class="progress-bar">
-
-                <div
-                    id="dashboardProgressBar"
-                    class="progress-fill">
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     QUIZ
-========================= -->
-
-<section id="quiz" class="quiz-section">
-
-    <div class="section-title">
-
-        <h2>
-            🎯 آزمون تعیین سطح
-        </h2>
-
-        <p>
-            ۱۰ سؤال را جواب بده تا سطح تقریبی
-            خودت را مشخص کنیم.
-        </p>
-
-    </div>
-
-
-    <div class="quiz-container">
-
-
-        <div
-            id="quizContent">
-
-
-            <div class="quiz-header">
-
-                <span id="questionNumber">
-                    سؤال 1 از 10
-                </span>
-
-                <span id="scoreText">
-                    امتیاز: 0
-                </span>
-
-            </div>
-
-
-            <div class="quiz-progress">
-
-                <div
-                    id="progress"
-                    class="quiz-progress-fill">
-
-                </div>
-
-            </div>
-
-
-            <div
-                id="question"
-                class="question">
-
-                در حال بارگذاری سؤال...
-
-            </div>
-
-
-            <div
-                id="options"
-                class="options">
-
-            </div>
-
-
-            <div
-                id="feedback"
-                class="feedback">
-
-            </div>
-
-
-            <button
-                id="nextButton"
-                class="next-button"
-                onclick="nextQuestion()">
-
-                سؤال بعدی ←
-
-            </button>
-
-        </div>
-
-
-        <div
-            id="result"
-            class="quiz-result">
-
-            <div class="result-icon">
-                🏆
-            </div>
-
-            <h2>
-                آزمون تمام شد!
-            </h2>
-
-            <div
-                id="finalScore"
-                class="final-score">
-
-                امتیاز شما: 0 از 10
-
-            </div>
-
-            <div
-                id="levelResult"
-                class="level-result">
-
-            </div>
-
-
-            <button
-                class="restart-button"
-                onclick="restartQuiz()">
-
-                🔄 دوباره امتحان کن
-
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     PRONUNCIATION
-========================= -->
-
-<section id="pronunciation-section">
-
-    <div class="section-title">
-
-        <h2>
-            🗣️ تمرین تلفظ
-        </h2>
-
-        <p>
-            کلمه را ببین، معنی را یاد بگیر و
-            با دکمه صدا تلفظ آن را بشنو.
-        </p>
-
-    </div>
-
-
-    <div
-        id="pronunciation"
-        class="pronunciation-grid">
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     EXERCISES
-========================= -->
-
-<section
-    id="exercises"
-    class="features-section">
-
-    <div class="section-title">
-
-        <h2>
-            📝 تمرین‌های زبان
-        </h2>
-
-        <p>
-            مهارت‌های مختلف زبانت را تقویت کن.
-        </p>
-
-    </div>
-
-
-    <div class="exercise-grid">
-
-
-        <div class="exercise-card">
-
-            <h3>
-                🧠 واژگان
-            </h3>
-
-            <p>
-                کلمات جدید یاد بگیر و معنی آن‌ها
-                را تمرین کن.
-            </p>
-
-            <button
-                class="exercise-button"
-                onclick="exerciseMessage('vocabulary')">
-
-                شروع تمرین
-
-            </button>
-
-        </div>
-
-
-        <div class="exercise-card">
-
-            <h3>
-                📖 گرامر
-            </h3>
-
-            <p>
-                ساختارهای مهم زبان را با تمرین
-                یاد بگیر.
-            </p>
-
-            <button
-                class="exercise-button"
-                onclick="exerciseMessage('grammar')">
-
-                شروع تمرین
-
-            </button>
-
-        </div>
-
-
-        <div class="exercise-card">
-
-            <h3>
-                🎧 شنیداری
-            </h3>
-
-            <p>
-                گوش دادن و درک جمله‌های زبان
-                موردنظر را تمرین کن.
-            </p>
-
-            <button
-                class="exercise-button"
-                onclick="exerciseMessage('listening')">
-
-                شروع تمرین
-
-            </button>
-
-        </div>
-
-
-        <div class="exercise-card">
-
-            <h3>
-                🗣️ مکالمه
-            </h3>
-
-            <p>
-                جمله‌های کاربردی را تمرین کن
-                و تلفظ را بشنو.
-            </p>
-
-            <button
-                class="exercise-button"
-                onclick="exerciseMessage('speaking')">
-
-                شروع تمرین
-
-            </button>
-
-        </div>
-
-    </div>
+    <div id="progressGrid" class="progress-grid"></div>
 
 </section>
 
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-    <h2>
-        ZabanPro
-    </h2>
+    <strong>ZabanPro</strong>
 
     <p>
-        یادگیری زبان، قدم‌به‌قدم و برای همه 🌍
+        یادگیری زبان، قدم به قدم.
     </p>
 
 </footer>
 
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-
 <script src="app.js"></script>
 
 </body>
-
-            </html>
+</html>
