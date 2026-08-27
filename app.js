@@ -1,1331 +1,1645 @@
-/* =====================================================
-   ZabanPro - Application Engine
-   بدون API
-===================================================== */
+// ===============================
+// ZabanPro - Complete App
+// ===============================
 
+const languages = [
+    { id: "en", name: "انگلیسی", flag: "🇬🇧", native: "English" },
+    { id: "de", name: "آلمانی", flag: "🇩🇪", native: "Deutsch" },
+    { id: "es", name: "اسپانیایی", flag: "🇪🇸", native: "Español" },
+    { id: "fr", name: "فرانسوی", flag: "🇫🇷", native: "Français" },
+    { id: "it", name: "ایتالیایی", flag: "🇮🇹", native: "Italiano" },
+    { id: "pt", name: "پرتغالی", flag: "🇵🇹", native: "Português" },
+    { id: "ru", name: "روسی", flag: "🇷🇺", native: "Русский" },
+    { id: "tr", name: "ترکی", flag: "🇹🇷", native: "Türkçe" },
+    { id: "ar", name: "عربی", flag: "🇸🇦", native: "العربية" },
+    { id: "ja", name: "ژاپنی", flag: "🇯🇵", native: "日本語" },
+    { id: "ko", name: "کره‌ای", flag: "🇰🇷", native: "한국어" },
+    { id: "zh", name: "چینی", flag: "🇨🇳", native: "中文" },
+    { id: "nl", name: "هلندی", flag: "🇳🇱", native: "Nederlands" },
+    { id: "sv", name: "سوئدی", flag: "🇸🇪", native: "Svenska" },
+    { id: "pl", name: "لهستانی", flag: "🇵🇱", native: "Polski" },
+    { id: "el", name: "یونانی", flag: "🇬🇷", native: "Ελληνικά" },
+    { id: "hi", name: "هندی", flag: "🇮🇳", native: "हिन्दी" },
+    { id: "no", name: "نروژی", flag: "🇳🇴", native: "Norsk" },
+    { id: "da", name: "دانمارکی", flag: "🇩🇰", native: "Dansk" },
+    { id: "fi", name: "فنلاندی", flag: "🇫🇮", native: "Suomi" }
+];
 
-/* =====================================================
-   1. زبان‌ها
-===================================================== */
+// =====================================
+// داده‌های آموزشی
+// =====================================
 
-const languages = {
+const courses = {
 
-    english: {
-        name: "انگلیسی",
-        flag: "🇬🇧",
-        speech: "en-US",
+en: {
+    words: [
+        ["hello", "سلام"],
+        ["book", "کتاب"],
+        ["house", "خانه"],
+        ["water", "آب"],
+        ["friend", "دوست"],
+        ["school", "مدرسه"],
+        ["food", "غذا"],
+        ["family", "خانواده"],
+        ["morning", "صبح"],
+        ["night", "شب"],
+        ["happy", "خوشحال"],
+        ["beautiful", "زیبا"],
+        ["learn", "یاد گرفتن"],
+        ["speak", "صحبت کردن"],
+        ["write", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "فعل to be",
+            explanation: "برای معرفی و توصیف از am / is / are استفاده می‌کنیم.",
+            example: "I am a student."
+        },
+        {
+            title: "حال ساده",
+            explanation: "برای عادت‌ها و کارهای تکراری از Present Simple استفاده می‌کنیم.",
+            example: "I play football."
+        }
+    ]
+},
 
-        words: [
-            ["Hello", "سلام"],
-            ["Book", "کتاب"],
-            ["Water", "آب"],
-            ["Friend", "دوست"],
-            ["School", "مدرسه"]
-        ]
-    },
+de: {
+    words: [
+        ["Hallo", "سلام"],
+        ["Buch", "کتاب"],
+        ["Haus", "خانه"],
+        ["Wasser", "آب"],
+        ["Freund", "دوست"],
+        ["Schule", "مدرسه"],
+        ["Essen", "غذا"],
+        ["Familie", "خانواده"],
+        ["Morgen", "صبح"],
+        ["Nacht", "شب"],
+        ["glücklich", "خوشحال"],
+        ["schön", "زیبا"],
+        ["lernen", "یاد گرفتن"],
+        ["sprechen", "صحبت کردن"],
+        ["schreiben", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "Sein",
+            explanation: "Das Verb sein bedeutet «بودن».",
+            example: "Ich bin Schüler."
+        },
+        {
+            title: "Präsens",
+            explanation: "Das Präsens wird für die Gegenwart verwendet.",
+            example: "Ich lerne Deutsch."
+        }
+    ]
+},
 
-    spanish: {
-        name: "اسپانیایی",
-        flag: "🇪🇸",
-        speech: "es-ES",
+es: {
+    words: [
+        ["hola", "سلام"],
+        ["libro", "کتاب"],
+        ["casa", "خانه"],
+        ["agua", "آب"],
+        ["amigo", "دوست"],
+        ["escuela", "مدرسه"],
+        ["comida", "غذا"],
+        ["familia", "خانواده"],
+        ["mañana", "صبح"],
+        ["noche", "شب"],
+        ["feliz", "خوشحال"],
+        ["bonito", "زیبا"],
+        ["aprender", "یاد گرفتن"],
+        ["hablar", "صحبت کردن"],
+        ["escribir", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "Ser",
+            explanation: "از ser برای معرفی و بیان هویت استفاده می‌شود.",
+            example: "Soy estudiante."
+        },
+        {
+            title: "Presente",
+            explanation: "برای اتفاقات و عادت‌های فعلی استفاده می‌شود.",
+            example: "Yo estudio español."
+        }
+    ]
+},
 
-        words: [
-            ["Hola", "سلام"],
-            ["Casa", "خانه"],
-            ["Agua", "آب"],
-            ["Amigo", "دوست"],
-            ["Escuela", "مدرسه"]
-        ]
-    },
+fr: {
+    words: [
+        ["bonjour", "سلام"],
+        ["livre", "کتاب"],
+        ["maison", "خانه"],
+        ["eau", "آب"],
+        ["ami", "دوست"],
+        ["école", "مدرسه"],
+        ["nourriture", "غذا"],
+        ["famille", "خانواده"],
+        ["matin", "صبح"],
+        ["nuit", "شب"],
+        ["heureux", "خوشحال"],
+        ["beau", "زیبا"],
+        ["apprendre", "یاد گرفتن"],
+        ["parler", "صحبت کردن"],
+        ["écrire", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "Être",
+            explanation: "فعل être برای «بودن» استفاده می‌شود.",
+            example: "Je suis étudiant."
+        },
+        {
+            title: "Présent",
+            explanation: "زمان حال برای اتفاقات فعلی استفاده می‌شود.",
+            example: "Je parle français."
+        }
+    ]
+},
 
-    french: {
-        name: "فرانسوی",
-        flag: "🇫🇷",
-        speech: "fr-FR",
-
-        words: [
-            ["Bonjour", "سلام"],
-            ["Maison", "خانه"],
-            ["Eau", "آب"],
-            ["Ami", "دوست"],
-            ["École", "مدرسه"]
-        ]
-    },
-
-    german: {
-        name: "آلمانی",
-        flag: "🇩🇪",
-        speech: "de-DE",
-
-        words: [
-            ["Hallo", "سلام"],
-            ["Haus", "خانه"],
-            ["Wasser", "آب"],
-            ["Freund", "دوست"],
-            ["Schule", "مدرسه"]
-        ]
-    },
-
-    italian: {
-        name: "ایتالیایی",
-        flag: "🇮🇹",
-        speech: "it-IT",
-
-        words: [
-            ["Ciao", "سلام"],
-            ["Casa", "خانه"],
-            ["Acqua", "آب"],
-            ["Amico", "دوست"],
-            ["Scuola", "مدرسه"]
-        ]
-    },
-
-    portuguese: {
-        name: "پرتغالی",
-        flag: "🇵🇹",
-        speech: "pt-PT",
-
-        words: [
-            ["Olá", "سلام"],
-            ["Casa", "خانه"],
-            ["Água", "آب"],
-            ["Amigo", "دوست"],
-            ["Escola", "مدرسه"]
-        ]
-    },
-
-    russian: {
-        name: "روسی",
-        flag: "🇷🇺",
-        speech: "ru-RU",
-
-        words: [
-            ["Привет", "سلام"],
-            ["Дом", "خانه"],
-            ["Вода", "آب"],
-            ["Друг", "دوست"],
-            ["Школа", "مدرسه"]
-        ]
-    },
-
-    arabic: {
-        name: "عربی",
-        flag: "🇸🇦",
-        speech: "ar-SA",
-
-        words: [
-            ["مرحبا", "سلام"],
-            ["بيت", "خانه"],
-            ["ماء", "آب"],
-            ["صديق", "دوست"],
-            ["مدرسة", "مدرسه"]
-        ]
-    },
-
-    turkish: {
-        name: "ترکی",
-        flag: "🇹🇷",
-        speech: "tr-TR",
-
-        words: [
-            ["Merhaba", "سلام"],
-            ["Ev", "خانه"],
-            ["Su", "آب"],
-            ["Arkadaş", "دوست"],
-            ["Okul", "مدرسه"]
-        ]
-    },
-
-    japanese: {
-        name: "ژاپنی",
-        flag: "🇯🇵",
-        speech: "ja-JP",
-
-        words: [
-            ["こんにちは", "سلام"],
-            ["家", "خانه"],
-            ["水", "آب"],
-            ["友達", "دوست"],
-            ["学校", "مدرسه"]
-        ]
-    },
-
-    korean: {
-        name: "کره‌ای",
-        flag: "🇰🇷",
-        speech: "ko-KR",
-
-        words: [
-            ["안녕하세요", "سلام"],
-            ["집", "خانه"],
-            ["물", "آب"],
-            ["친구", "دوست"],
-            ["학교", "مدرسه"]
-        ]
-    },
-
-    chinese: {
-        name: "چینی",
-        flag: "🇨🇳",
-        speech: "zh-CN",
-
-        words: [
-            ["你好", "سلام"],
-            ["家", "خانه"],
-            ["水", "آب"],
-            ["朋友", "دوست"],
-            ["学校", "مدرسه"]
-        ]
-    },
-
-    dutch: {
-        name: "هلندی",
-        flag: "🇳🇱",
-        speech: "nl-NL",
-
-        words: [
-            ["Hallo", "سلام"],
-            ["Huis", "خانه"],
-            ["Water", "آب"],
-            ["Vriend", "دوست"],
-            ["School", "مدرسه"]
-        ]
-    },
-
-    swedish: {
-        name: "سوئدی",
-        flag: "🇸🇪",
-        speech: "sv-SE",
-
-        words: [
-            ["Hej", "سلام"],
-            ["Hus", "خانه"],
-            ["Vatten", "آب"],
-            ["Vän", "دوست"],
-            ["Skola", "مدرسه"]
-        ]
-    },
-
-    greek: {
-        name: "یونانی",
-        flag: "🇬🇷",
-        speech: "el-GR",
-
-        words: [
-            ["Γεια", "سلام"],
-            ["Σπίτι", "خانه"],
-            ["Νερό", "آب"],
-            ["Φίλος", "دوست"],
-            ["Σχολείο", "مدرسه"]
-        ]
-    },
-
-    hindi: {
-        name: "هندی",
-        flag: "🇮🇳",
-        speech: "hi-IN",
-
-        words: [
-            ["नमस्ते", "سلام"],
-            ["घर", "خانه"],
-            ["पानी", "آب"],
-            ["दोस्त", "دوست"],
-            ["स्कूल", "مدرسه"]
-        ]
-    },
-
-    polish: {
-        name: "لهستانی",
-        flag: "🇵🇱",
-        speech: "pl-PL",
-
-        words: [
-            ["Cześć", "سلام"],
-            ["Dom", "خانه"],
-            ["Woda", "آب"],
-            ["Przyjaciel", "دوست"],
-            ["Szkoła", "مدرسه"]
-        ]
-    },
-
-    ukrainian: {
-        name: "اوکراینی",
-        flag: "🇺🇦",
-        speech: "uk-UA",
-
-        words: [
-            ["Привіт", "سلام"],
-            ["Дім", "خانه"],
-            ["Вода", "آب"],
-            ["Друг", "دوست"],
-            ["Школа", "مدرسه"]
-        ]
-    },
-
-    hebrew: {
-        name: "عبری",
-        flag: "🇮🇱",
-        speech: "he-IL",
-
-        words: [
-            ["שלום", "سلام"],
-            ["בית", "خانه"],
-            ["מים", "آب"],
-            ["חבר", "دوست"],
-            ["בית ספר", "مدرسه"]
-        ]
-    },
-
-    persian: {
-        name: "فارسی",
-        flag: "🇮🇷",
-        speech: "fa-IR",
-
-        words: [
-            ["سلام", "Hello"],
-            ["خانه", "House"],
-            ["آب", "Water"],
-            ["دوست", "Friend"],
-            ["مدرسه", "School"]
-        ]
-    }
+it: {
+    words: [
+        ["ciao", "سلام"],
+        ["libro", "کتاب"],
+        ["casa", "خانه"],
+        ["acqua", "آب"],
+        ["amico", "دوست"],
+        ["scuola", "مدرسه"],
+        ["cibo", "غذا"],
+        ["famiglia", "خانواده"],
+        ["mattina", "صبح"],
+        ["notte", "شب"],
+        ["felice", "خوشحال"],
+        ["bello", "زیبا"],
+        ["imparare", "یاد گرفتن"],
+        ["parlare", "صحبت کردن"],
+        ["scrivere", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "Essere",
+            explanation: "فعل essere به معنی «بودن» است.",
+            example: "Io sono studente."
+        },
+        {
+            title: "Presente",
+            explanation: "زمان حال برای کارهای فعلی استفاده می‌شود.",
+            example: "Io parlo italiano."
+        }
+    ]
+}
 
 };
 
+// =====================================
+// برای زبان‌هایی که محتوای پایه ندارند
+// =====================================
 
-/* =====================================================
-   2. وضعیت کاربر
-===================================================== */
+const baseCourse = {
+    words: [
+        ["Hello", "سلام"],
+        ["Book", "کتاب"],
+        ["House", "خانه"],
+        ["Water", "آب"],
+        ["Friend", "دوست"],
+        ["School", "مدرسه"],
+        ["Food", "غذا"],
+        ["Family", "خانواده"],
+        ["Morning", "صبح"],
+        ["Night", "شب"],
+        ["Happy", "خوشحال"],
+        ["Beautiful", "زیبا"],
+        ["Learn", "یاد گرفتن"],
+        ["Speak", "صحبت کردن"],
+        ["Write", "نوشتن"]
+    ],
+    grammar: [
+        {
+            title: "جمله ساده",
+            explanation: "با جمله‌های ساده شروع می‌کنیم.",
+            example: "I am a student."
+        },
+        {
+            title: "زمان حال",
+            explanation: "برای بیان اتفاقات و عادت‌های فعلی استفاده می‌شود.",
+            example: "I learn every day."
+        }
+    ]
+};
 
-let currentLanguage = "english";
+languages.forEach(lang => {
+    if (!courses[lang.id]) {
+        courses[lang.id] = JSON.parse(JSON.stringify(baseCourse));
+    }
+});
 
-let currentQuestion = 0;
+// =====================================
+// وضعیت برنامه
+// =====================================
 
-let quizScore = 0;
+let selectedLanguage = null;
 
-let answered = false;
+let state = {
+    level: "A1",
+    placementScore: 0,
+    currentWordIndex: 0,
+    learnedWords: 0,
+    grammarIndex: 0,
+    completedGrammar: 0,
+    examsPassed: 0,
+    progress: 0
+};
 
+// =====================================
+// ذخیره و بازیابی
+// =====================================
 
-/* =====================================================
-   3. ذخیره پیشرفت
-===================================================== */
+function saveState() {
 
-function saveProgress(){
-
-    const data = {
-
-        language: currentLanguage,
-
-        score: quizScore
-
-    };
+    if (!selectedLanguage) return;
 
     localStorage.setItem(
-        "zabanpro_progress",
-        JSON.stringify(data)
+        "zabanpro_" + selectedLanguage,
+        JSON.stringify(state)
+    );
+}
+
+function loadState() {
+
+    if (!selectedLanguage) return;
+
+    const saved = localStorage.getItem(
+        "zabanpro_" + selectedLanguage
     );
 
-}
+    if (saved) {
 
+        try {
+            state = JSON.parse(saved);
 
-function loadProgress(){
+        } catch (error) {
 
-    const saved =
-        localStorage.getItem(
-            "zabanpro_progress"
-        );
-
-    if(!saved){
-        return;
-    }
-
-    try{
-
-        const data =
-            JSON.parse(saved);
-
-        if(data.language){
-            currentLanguage =
-                data.language;
+            console.log("خطا در بازیابی اطلاعات");
         }
 
-    }catch(error){
+    } else {
 
-        console.log(
-            "Progress could not be loaded."
-        );
-
+        state = {
+            level: "A1",
+            placementScore: 0,
+            currentWordIndex: 0,
+            learnedWords: 0,
+            grammarIndex: 0,
+            completedGrammar: 0,
+            examsPassed: 0,
+            progress: 0
+        };
     }
-
 }
 
+// =====================================
+// عناصر HTML
+// =====================================
 
-/* =====================================================
-   4. انتخاب زبان
-===================================================== */
+const languageGrid =
+    document.getElementById("languageGrid");
 
-function selectLanguage(languageKey){
+const selectedLanguageElement =
+    document.getElementById("selectedLanguage");
 
-    if(!languages[languageKey]){
-        return;
-    }
+const learningPanel =
+    document.getElementById("learningPanel");
 
-    currentLanguage =
-        languageKey;
+const progressGrid =
+    document.getElementById("progressGrid");
 
-    currentQuestion = 0;
+// =====================================
+// نمایش زبان‌ها
+// =====================================
 
-    quizScore = 0;
+function renderLanguages() {
 
-    answered = false;
+    languageGrid.innerHTML = "";
 
-    saveProgress();
+    languages.forEach(language => {
+
+        const card = document.createElement("div");
+
+        card.className = "language-card";
+
+        card.innerHTML = `
+            <div class="language-flag">
+                ${language.flag}
+            </div>
+
+            <h3>${language.name}</h3>
+
+            <p>${language.native}</p>
+
+            <button onclick="selectLanguage('${language.id}')">
+                شروع یادگیری
+            </button>
+        `;
+
+        languageGrid.appendChild(card);
+    });
+}
+
+// =====================================
+// انتخاب زبان
+// =====================================
+
+window.selectLanguage = function(id) {
+
+    selectedLanguage = id;
+
+    loadState();
 
     const language =
-        languages[languageKey];
+        languages.find(item => item.id === id);
 
+    selectedLanguageElement.innerHTML = `
+        <div class="selected-box">
+            ${language.flag}
+            <strong>${language.name}</strong>
+            <span>${language.native}</span>
+        </div>
+    `;
 
-    const selected =
-        document.getElementById(
-            "selectedLanguage"
-        );
-
-    if(selected){
-
-        selected.innerHTML =
-            language.flag +
-            " زبان انتخاب‌شده: " +
-            language.name +
-            " — آزمون تعیین سطح آماده است.";
-
-    }
-
+    showDashboard();
 
     document
-        .querySelectorAll(
-            ".language-card"
-        )
-        .forEach(card => {
-
-            card.classList.remove(
-                "active"
-            );
-
+        .getElementById("learning")
+        .scrollIntoView({
+            behavior: "smooth"
         });
+};
 
+// =====================================
+// داشبورد یادگیری
+// =====================================
 
-    const selectedCard =
-        document.querySelector(
-            `[data-language="${languageKey}"]`
-        );
+function showDashboard() {
 
+    const course =
+        courses[selectedLanguage];
 
-    if(selectedCard){
+    learningPanel.innerHTML = `
 
-        selectedCard.classList.add(
-            "active"
-        );
+        <div class="learning-dashboard">
 
-    }
+            <div class="level-box">
 
+                <span>سطح فعلی</span>
 
-    updatePronunciation();
+                <strong>${state.level}</strong>
 
-    loadQuestion();
+            </div>
 
+            <div class="score-box">
 
-    const quiz =
-        document.getElementById(
-            "quiz"
-        );
+                <span>امتیاز تعیین سطح</span>
 
-    if(quiz){
+                <strong>${state.placementScore}/10</strong>
 
-        quiz.scrollIntoView({
-            behavior:"smooth"
-        });
+            </div>
 
-    }
+            <div class="progress-box">
 
+                <span>پیشرفت</span>
+
+                <strong>${state.progress}%</strong>
+
+            </div>
+
+        </div>
+
+        <div class="learning-actions">
+
+            <button class="learn-btn"
+                onclick="startPlacementTest()">
+                🎯 آزمون تعیین سطح
+            </button>
+
+            <button class="learn-btn"
+                onclick="startLesson()">
+                📚 مسیر یادگیری
+            </button>
+
+            <button class="learn-btn"
+                onclick="startPronunciation()">
+                🗣️ تلفظ
+            </button>
+
+            <button class="learn-btn"
+                onclick="startWordExam()">
+                📝 آزمون کلمات
+            </button>
+
+            <button class="learn-btn"
+                onclick="startGrammarExam()">
+                📖 آزمون گرامر
+            </button>
+
+            <button class="learn-btn"
+                onclick="startLevelExam()">
+                🚀 آزمون ارتقای سطح
+            </button>
+
+        </div>
+
+        <div id="lessonArea"></div>
+    `;
+
+    renderProgress();
 }
 
+// =====================================
+// آزمون تعیین سطح
+// =====================================
 
-/* =====================================================
-   5. تلفظ
-===================================================== */
+const placementQuestions = {
 
-function speakWord(text){
+en: [
+    ["What does 'hello' mean?", ["سلام", "خداحافظ", "شب", "کتاب"], 0],
+    ["Choose: I ___ a student.", ["am", "is", "are", "be"], 0],
+    ["What is 'water'?", ["آب", "غذا", "خانه", "مدرسه"], 0],
+    ["Choose: She ___ happy.", ["am", "is", "are", "be"], 1],
+    ["What does 'book' mean?", ["دوست", "کتاب", "صبح", "شب"], 1],
+    ["Choose: They ___ friends.", ["am", "is", "are", "be"], 2],
+    ["What does 'beautiful' mean?", ["زیبا", "سریع", "بزرگ", "خوشحال"], 0],
+    ["Choose: I ___ football.", ["play", "plays", "playing", "played"], 0],
+    ["What does 'learn' mean?", ["نوشتن", "دیدن", "یاد گرفتن", "رفتن"], 2],
+    ["Choose: He ___ every day.", ["study", "studies", "studying", "studied"], 1]
+],
 
-    if(
-        !("speechSynthesis" in window)
-    ){
+de: [
+    ["Was bedeutet „Hallo“?", ["سلام", "خداحافظ", "کتاب", "آب"], 0],
+    ["Ich ___ Schüler.", ["bin", "ist", "sind", "sein"], 0],
+    ["Was bedeutet „Wasser“?", ["آب", "خانه", "دوست", "غذا"], 0],
+    ["Sie ___ glücklich.", ["bin", "ist", "sind", "sein"], 1],
+    ["Was bedeutet „Buch“?", ["کتاب", "صبح", "مدرسه", "شب"], 0],
+    ["Wir ___ Freunde.", ["bin", "ist", "sind", "sein"], 2],
+    ["Was bedeutet „schön“?", ["زیبا", "سریع", "خوشحال", "بزرگ"], 0],
+    ["Ich ___ Deutsch.", ["lerne", "lernt", "lernen", "gelernt"], 0],
+    ["Was bedeutet „lernen“?", ["نوشتن", "یاد گرفتن", "رفتن", "دیدن"], 1],
+    ["Er ___ jeden Tag.", ["lernen", "lernt", "lerne", "gelernt"], 1]
+],
 
-        alert(
-            "مرورگر شما از قابلیت تلفظ پشتیبانی نمی‌کند."
-        );
+es: [
+    ["¿Qué significa «hola»?", ["سلام", "خداحافظ", "کتاب", "آب"], 0],
+    ["Yo ___ estudiante.", ["soy", "es", "son", "ser"], 0],
+    ["¿Qué significa «agua»?", ["آب", "خانه", "دوست", "غذا"], 0],
+    ["Ella ___ feliz.", ["soy", "es", "son", "ser"], 1],
+    ["¿Qué significa «libro»?", ["کتاب", "صبح", "مدرسه", "شب"], 0],
+    ["Nosotros ___ amigos.", ["soy", "es", "somos", "ser"], 2],
+    ["¿Qué significa «bonito»?", ["زیبا", "سریع", "بزرگ", "خوشحال"], 0],
+    ["Yo ___ español.", ["aprendo", "aprende", "aprender", "aprendido"], 0],
+    ["¿Qué significa «aprender»?", ["نوشتن", "یاد گرفتن", "رفتن", "دیدن"], 1],
+    ["Él ___ todos los días.", ["estudio", "estudia", "estudiar", "estudiando"], 1]
+],
+
+fr: [
+    ["Que signifie «bonjour» ?", ["سلام", "خداحافظ", "کتاب", "آب"], 0],
+    ["Je ___ étudiant.", ["suis", "est", "sommes", "être"], 0],
+    ["Que signifie «eau» ?", ["آب", "خانه", "دوست", "غذا"], 0],
+    ["Elle ___ heureuse.", ["suis", "est", "sont", "être"], 1],
+    ["Que signifie «livre» ?", ["کتاب", "صبح", "مدرسه", "شب"], 0],
+    ["Nous ___ amis.", ["suis", "est", "sommes", "être"], 2],
+    ["Que signifie «beau» ?", ["زیبا", "سریع", "بزرگ", "خوشحال"], 0],
+    ["Je ___ français.", ["apprends", "apprend", "apprendre", "appris"], 0],
+    ["Que signifie «apprendre» ?", ["نوشتن", "یاد گرفتن", "رفتن", "دیدن"], 1],
+    ["Il ___ tous les jours.", ["étudie", "étudies", "étudier", "étudié"], 0]
+],
+
+it: [
+    ["Cosa significa «ciao»?", ["سلام", "خداحافظ", "کتاب", "آب"], 0],
+    ["Io ___ studente.", ["sono", "è", "siamo", "essere"], 0],
+    ["Cosa significa «acqua»?", ["آب", "خانه", "دوست", "غذا"], 0],
+    ["Lei ___ felice.", ["sono", "è", "siamo", "essere"], 1],
+    ["Cosa significa «libro»?", ["کتاب", "صبح", "مدرسه", "شب"], 0],
+    ["Noi ___ amici.", ["sono", "è", "siamo", "essere"], 2],
+    ["Cosa significa «bello»?", ["زیبا", "سریع", "بزرگ", "خوشحال"], 0],
+    ["Io ___ italiano.", ["imparo", "impara", "imparare", "imparato"], 0],
+    ["Cosa significa «imparare»?", ["نوشتن", "یاد گرفتن", "رفتن", "دیدن"], 1],
+    ["Lui ___ ogni giorno.", ["studia", "studio", "studiare", "studiato"], 0]
+]
+
+};
+
+function getPlacementQuestions() {
+
+    return placementQuestions[selectedLanguage] ||
+        placementQuestions.en;
+}
+
+let placementIndex = 0;
+let placementScore = 0;
+
+window.startPlacementTest = function() {
+
+    placementIndex = 0;
+    placementScore = 0;
+
+    showPlacementQuestion();
+};
+
+function showPlacementQuestion() {
+
+    const questions =
+        getPlacementQuestions();
+
+    if (placementIndex >= questions.length) {
+
+        finishPlacementTest();
 
         return;
     }
 
+    const question =
+        questions[placementIndex];
 
-    const language =
-        languages[currentLanguage];
+    const lessonArea =
+        document.getElementById("lessonArea");
 
+    lessonArea.innerHTML = `
 
-    const utterance =
-        new SpeechSynthesisUtterance(
-            text
-        );
+        <div class="test-card">
 
+            <div class="test-header">
+                🎯 آزمون تعیین سطح
+                <span>
+                    سؤال ${placementIndex + 1}
+                    از ${questions.length}
+                </span>
+            </div>
 
-    utterance.lang =
-        language.speech;
+            <h3>
+                ${question[0]}
+            </h3>
 
+            <div class="answers">
 
-    utterance.rate =
-        0.85;
+                ${question[1].map((answer, index) => `
 
+                    <button
+                        class="answer-btn"
+                        onclick="answerPlacement(${index})">
 
-    utterance.pitch =
-        1;
+                        ${answer}
 
+                    </button>
 
-    window.speechSynthesis.cancel();
+                `).join("")}
 
-    window.speechSynthesis.speak(
-        utterance
+            </div>
+
+        </div>
+    `;
+}
+
+window.answerPlacement = function(answer) {
+
+    const questions =
+        getPlacementQuestions();
+
+    const correct =
+        questions[placementIndex][2];
+
+    if (answer === correct) {
+        placementScore++;
+    }
+
+    placementIndex++;
+
+    showPlacementQuestion();
+};
+
+function finishPlacementTest() {
+
+    let level = "A1";
+
+    if (placementScore >= 9) {
+        level = "B2";
+    } else if (placementScore >= 7) {
+        level = "B1";
+    } else if (placementScore >= 5) {
+        level = "A2";
+    }
+
+    state.placementScore = placementScore;
+    state.level = level;
+    state.progress = Math.min(
+        100,
+        placementScore * 10
     );
 
+    saveState();
+
+    document.getElementById("lessonArea").innerHTML = `
+
+        <div class="result-card">
+
+            <h2>🎉 آزمون تمام شد!</h2>
+
+            <p>
+                امتیاز شما:
+                <strong>${placementScore}/10</strong>
+            </p>
+
+            <p>
+                سطح پیشنهادی:
+                <strong>${level}</strong>
+            </p>
+
+            <button onclick="showDashboard()">
+                ادامه یادگیری 🚀
+            </button>
+
+        </div>
+    `;
+
+    renderProgress();
 }
 
+// =====================================
+// مسیر یادگیری
+// =====================================
 
-function updatePronunciation(){
+window.startLesson = function() {
 
-    const container =
-        document.getElementById(
-            "pronunciation"
-        );
+    const course =
+        courses[selectedLanguage];
 
+    const index =
+        state.currentWordIndex;
 
-    if(!container){
-        return;
-    }
+    if (index >= course.words.length) {
 
+        document.getElementById("lessonArea").innerHTML = `
 
-    const language =
-        languages[currentLanguage];
+            <div class="result-card">
 
+                <h2>🎉 این بخش تمام شد!</h2>
 
-    container.innerHTML = "";
+                <p>
+                    تمام کلمات این مرحله را یاد گرفتی.
+                </p>
 
-
-    language.words.forEach(
-        word => {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "word-card";
-
-
-            card.innerHTML = `
-
-                <div class="word">
-                    ${word[0]}
-                </div>
-
-                <div class="translation">
-                    ${word[1]}
-                </div>
-
-                <button
-                    class="speak-button"
-                    onclick="speakWord('${escapeSpeech(word[0])}')">
-
-                    🔊 شنیدن تلفظ
-
+                <button onclick="startWordExam()">
+                    📝 امتحان کلمات
                 </button>
 
-            `;
+            </div>
+        `;
 
+        return;
+    }
 
-            container.appendChild(
-                card
+    const word =
+        course.words[index];
+
+    const pronunciation =
+        getPronunciation(word[0], selectedLanguage);
+
+    document.getElementById("lessonArea").innerHTML = `
+
+        <div class="lesson-card">
+
+            <span class="lesson-number">
+                کلمه ${index + 1}
+            </span>
+
+            <h2>${word[0]}</h2>
+
+            <p class="meaning">
+                ${word[1]}
+            </p>
+
+            <p class="pronunciation">
+                🔊 ${pronunciation}
+            </p>
+
+            <button onclick="speakWord('${escapeSpeech(word[0])}')">
+                🗣️ شنیدن تلفظ
+            </button>
+
+            <button onclick="nextWord()">
+                کلمه بعدی ➜
+            </button>
+
+        </div>
+    `;
+};
+
+window.nextWord = function() {
+
+    state.currentWordIndex++;
+    state.learnedWords++;
+
+    updateProgress();
+
+    saveState();
+
+    startLesson();
+};
+
+// =====================================
+// آزمون هر ۵ کلمه
+// =====================================
+
+let wordExamQuestions = [];
+let wordExamIndex = 0;
+let wordExamScore = 0;
+
+window.startWordExam = function() {
+
+    const course =
+        courses[selectedLanguage];
+
+    const start =
+        Math.max(
+            0,
+            Math.floor(
+                state.currentWordIndex / 5
+            ) * 5 - 5
+        );
+
+    const end =
+        Math.min(
+            start + 5,
+            course.words.length
+        );
+
+    const selectedWords =
+        course.words.slice(start, end);
+
+    if (selectedWords.length === 0) {
+
+        alert("ابتدا چند کلمه یاد بگیر.");
+
+        return;
+    }
+
+    wordExamQuestions =
+        createWordQuestions(selectedWords);
+
+    wordExamIndex = 0;
+    wordExamScore = 0;
+
+    showWordExamQuestion();
+};
+
+function createWordQuestions(words) {
+
+    return words.map(word => {
+
+        const wrong =
+            courses[selectedLanguage]
+                .words
+                .filter(item => item[0] !== word[0])
+                .slice(0, 3)
+                .map(item => item[1]);
+
+        const options =
+            shuffle([
+                word[1],
+                ...wrong
+            ]);
+
+        return {
+            question: `"${word[0]}" یعنی چه؟`,
+            options,
+            correct: options.indexOf(word[1])
+        };
+    });
+}
+
+function showWordExamQuestion() {
+
+    if (wordExamIndex >= wordExamQuestions.length) {
+
+        finishWordExam();
+
+        return;
+    }
+
+    const q =
+        wordExamQuestions[wordExamIndex];
+
+    document.getElementById("lessonArea").innerHTML = `
+
+        <div class="test-card">
+
+            <div class="test-header">
+                📝 آزمون کلمات
+                <span>
+                    ${wordExamIndex + 1}
+                    /
+                    ${wordExamQuestions.length}
+                </span>
+            </div>
+
+            <h3>${q.question}</h3>
+
+            <div class="answers">
+
+                ${q.options.map((option, index) => `
+
+                    <button
+                        class="answer-btn"
+                        onclick="answerWordExam(${index})">
+
+                        ${option}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+    `;
+}
+
+window.answerWordExam = function(answer) {
+
+    if (
+        answer ===
+        wordExamQuestions[wordExamIndex].correct
+    ) {
+        wordExamScore++;
+    }
+
+    wordExamIndex++;
+
+    showWordExamQuestion();
+};
+
+function finishWordExam() {
+
+    const total =
+        wordExamQuestions.length;
+
+    const passed =
+        wordExamScore >= Math.ceil(total * 0.6);
+
+    if (passed) {
+
+        state.examsPassed++;
+
+        state.progress =
+            Math.min(
+                100,
+                state.progress + 5
             );
 
-        }
-    );
+        saveState();
+    }
 
+    document.getElementById("lessonArea").innerHTML = `
+
+        <div class="result-card">
+
+            <h2>
+                ${passed ? "🎉 قبول شدی!" : "❌ دوباره تلاش کن"}
+            </h2>
+
+            <p>
+                نتیجه:
+                ${wordExamScore}/${total}
+            </p>
+
+            <button onclick="showDashboard()">
+                بازگشت
+            </button>
+
+        </div>
+    `;
+
+    renderProgress();
 }
 
+// =====================================
+// گرامر
+// =====================================
 
-function escapeSpeech(text){
+window.startGrammarExam = function() {
 
-    return text
-        .replaceAll(
-            "\\",
-            "\\\\"
-        )
-        .replaceAll(
-            "'",
-            "\\'"
+    const grammar =
+        courses[selectedLanguage].grammar;
+
+    const index =
+        Math.min(
+            state.grammarIndex,
+            grammar.length - 1
         );
 
-}
+    const item =
+        grammar[index];
 
+    document.getElementById("lessonArea").innerHTML = `
 
-/* =====================================================
-   6. سؤال‌های تعیین سطح
-===================================================== */
+        <div class="grammar-card">
 
-const quizQuestions = [
+            <h2>📖 ${item.title}</h2>
 
-    {
-        question:
-        "Choose the correct sentence:",
+            <p>
+                ${item.explanation}
+            </p>
 
-        options:[
-            "She go to school.",
-            "She goes to school.",
-            "She going school.",
-            "She gone school."
-        ],
+            <div class="grammar-example">
+                ${item.example}
+            </div>
 
-        correct:1
-    },
+            <button onclick="startGrammarQuestion()">
+                شروع امتحان
+            </button>
 
+        </div>
+    `;
+};
 
-    {
-        question:
-        "What is the opposite of “big”?",
+let grammarCorrect = false;
 
-        options:[
-            "Small",
-            "Long",
-            "Fast",
-            "Tall"
-        ],
+window.startGrammarQuestion = function() {
 
-        correct:0
-    },
+    const grammar =
+        courses[selectedLanguage].grammar;
 
-
-    {
-        question:
-        "Complete: I ___ happy.",
-
-        options:[
-            "am",
-            "is",
-            "are",
-            "be"
-        ],
-
-        correct:0
-    },
-
-
-    {
-        question:
-        "Which sentence is past tense?",
-
-        options:[
-            "I play football.",
-            "I am playing football.",
-            "I played football.",
-            "I will play football."
-        ],
-
-        correct:2
-    },
-
-
-    {
-        question:
-        "Choose the correct word: There are ___ books.",
-
-        options:[
-            "much",
-            "many",
-            "a",
-            "little"
-        ],
-
-        correct:1
-    },
-
-
-    {
-        question:
-        "What does “because” express?",
-
-        options:[
-            "Reason",
-            "Place",
-            "Time",
-            "Quantity"
-        ],
-
-        correct:0
-    },
-
-
-    {
-        question:
-        "Choose the correct sentence:",
-
-        options:[
-            "If I had time, I would travel.",
-            "If I had time, I will travel.",
-            "If I have time yesterday, I travel.",
-            "If I having time, I travel."
-        ],
-
-        correct:0
-    },
-
-
-    {
-        question:
-        "She has lived here ___ 2020.",
-
-        options:[
-            "for",
-            "since",
-            "during",
-            "from"
-        ],
-
-        correct:1
-    },
-
-
-    {
-        question:
-        "Choose the correct form:",
-
-        options:[
-            "He suggested to go.",
-            "He suggested going.",
-            "He suggest going.",
-            "He suggesting go."
-        ],
-
-        correct:1
-    },
-
-
-    {
-        question:
-        "Choose the most natural sentence:",
-
-        options:[
-            "Despite the rain, we continued.",
-            "Despite it rained, we continued.",
-            "Despite of the rain, we continued.",
-            "Despite rain was falling, we continued."
-        ],
-
-        correct:0
-    }
-
-];
-
-
-/* =====================================================
-   7. نمایش سؤال
-===================================================== */
-
-function loadQuestion(){
-
-    const questionElement =
-        document.getElementById(
-            "question"
-        );
-
-
-    const optionsElement =
-        document.getElementById(
-            "options"
-        );
-
-
-    if(
-        !questionElement ||
-        !optionsElement
-    ){
-
-        return;
-
-    }
-
-
-    if(
-        currentQuestion >=
-        quizQuestions.length
-    ){
-
-        showResult();
-
-        return;
-
-    }
-
-
-    answered = false;
-
-
-    const question =
-        quizQuestions[
-            currentQuestion
+    const item =
+        grammar[
+            Math.min(
+                state.grammarIndex,
+                grammar.length - 1
+            )
         ];
 
+    const question =
+        createGrammarQuestion(item);
 
-    questionElement.textContent =
-        question.question;
+    document.getElementById("lessonArea").innerHTML = `
 
+        <div class="test-card">
 
-    optionsElement.innerHTML = "";
+            <div class="test-header">
+                📖 آزمون گرامر
+            </div>
 
+            <h3>
+                ${question.question}
+            </h3>
 
-    question.options.forEach(
-        (option,index) => {
+            <div class="answers">
 
-            const button =
-                document.createElement(
-                    "button"
-                );
+                ${question.options.map((option, index) => `
 
+                    <button
+                        class="answer-btn"
+                        onclick="answerGrammar(${index})">
 
-            button.className =
-                "option";
+                        ${option}
 
+                    </button>
 
-            button.textContent =
-                option;
+                `).join("")}
 
+            </div>
 
-            button.onclick =
-                () => {
+        </div>
+    `;
 
-                    checkAnswer(
-                        index,
-                        button
-                    );
+    window.currentGrammarQuestion =
+        question;
+};
 
-                };
+function createGrammarQuestion(item) {
 
+    if (selectedLanguage === "de") {
 
-            optionsElement.appendChild(
-                button
-            );
-
-        }
-    );
-
-
-    const number =
-        document.getElementById(
-            "questionNumber"
-        );
-
-
-    if(number){
-
-        number.textContent =
-            "سؤال " +
-            (currentQuestion + 1) +
-            " از " +
-            quizQuestions.length;
+        return {
+            question: "Welche Form ist richtig?",
+            options: [
+                "Ich bin Schüler.",
+                "Ich bist Schüler.",
+                "Ich sind Schüler.",
+                "Ich sein Schüler."
+            ],
+            correct: 0
+        };
 
     }
 
+    if (selectedLanguage === "es") {
 
-    const scoreText =
-        document.getElementById(
-            "scoreText"
-        );
-
-
-    if(scoreText){
-
-        scoreText.textContent =
-            "امتیاز: " +
-            quizScore;
-
-    }
-
-
-    const progress =
-        document.getElementById(
-            "progress"
-        );
-
-
-    if(progress){
-
-        progress.style.width =
-            (
-                (
-                    currentQuestion + 1
-                )
-                /
-                quizQuestions.length
-                *
-                100
-            ) +
-            "%";
+        return {
+            question: "¿Cuál es correcto?",
+            options: [
+                "Yo soy estudiante.",
+                "Yo es estudiante.",
+                "Yo son estudiante.",
+                "Yo ser estudiante."
+            ],
+            correct: 0
+        };
 
     }
 
+    if (selectedLanguage === "fr") {
 
-    const feedback =
-        document.getElementById(
-            "feedback"
-        );
-
-
-    if(feedback){
-
-        feedback.textContent = "";
-
-        feedback.className =
-            "feedback";
-
-    }
-
-
-    const next =
-        document.getElementById(
-            "nextButton"
-        );
-
-
-    if(next){
-
-        next.style.display =
-            "none";
+        return {
+            question: "Quelle phrase est correcte ?",
+            options: [
+                "Je suis étudiant.",
+                "Je est étudiant.",
+                "Je sont étudiant.",
+                "Je être étudiant."
+            ],
+            correct: 0
+        };
 
     }
 
+    if (selectedLanguage === "it") {
+
+        return {
+            question: "Quale frase è corretta?",
+            options: [
+                "Io sono studente.",
+                "Io è studente.",
+                "Io siamo studente.",
+                "Io essere studente."
+            ],
+            correct: 0
+        };
+
+    }
+
+    return {
+        question: "Choose the correct sentence:",
+        options: [
+            "I am a student.",
+            "I is a student.",
+            "I are a student.",
+            "I be a student."
+        ],
+        correct: 0
+    };
 }
 
-
-/* =====================================================
-   8. بررسی پاسخ
-===================================================== */
-
-function checkAnswer(
-    selected,
-    button
-){
-
-    if(answered){
-        return;
-    }
-
-
-    answered = true;
-
+window.answerGrammar = function(answer) {
 
     const question =
-        quizQuestions[
-            currentQuestion
-        ];
+        window.currentGrammarQuestion;
 
+    if (answer === question.correct) {
 
-    const buttons =
-        document.querySelectorAll(
-            ".option"
-        );
+        state.completedGrammar++;
 
+        const grammar =
+            courses[selectedLanguage].grammar;
 
-    buttons.forEach(
-        item => {
-
-            item.disabled = true;
-
-        }
-    );
-
-
-    const feedback =
-        document.getElementById(
-            "feedback"
-        );
-
-
-    if(
-        selected ===
-        question.correct
-    ){
-
-        quizScore++;
-
-
-        button.classList.add(
-            "correct"
-        );
-
-
-        if(feedback){
-
-            feedback.textContent =
-                "✅ پاسخ درست است!";
-
-            feedback.className =
-                "feedback correct";
-
+        if (
+            state.grammarIndex <
+            grammar.length - 1
+        ) {
+            state.grammarIndex++;
         }
 
-    }
-
-    else{
-
-        button.classList.add(
-            "wrong"
-        );
-
-
-        if(
-            buttons[
-                question.correct
-            ]
-        ){
-
-            buttons[
-                question.correct
-            ]
-            .classList.add(
-                "correct"
+        state.progress =
+            Math.min(
+                100,
+                state.progress + 5
             );
 
+        saveState();
+
+        grammarCorrect = true;
+
+    } else {
+
+        grammarCorrect = false;
+    }
+
+    document.getElementById("lessonArea").innerHTML = `
+
+        <div class="result-card">
+
+            <h2>
+                ${grammarCorrect
+                    ? "✅ پاسخ درست!"
+                    : "❌ پاسخ اشتباه است"}
+            </h2>
+
+            <button onclick="showDashboard()">
+                ادامه
+            </button>
+
+        </div>
+    `;
+
+    renderProgress();
+};
+
+// =====================================
+// آزمون ارتقای سطح
+// =====================================
+
+window.startLevelExam = function() {
+
+    const questions = [
+
+        {
+            q: "I ___ English every day.",
+            a: ["study", "studies", "studying", "studied"],
+            c: 0
+        },
+
+        {
+            q: "She ___ at school.",
+            a: ["am", "is", "are", "be"],
+            c: 1
+        },
+
+        {
+            q: "They ___ football yesterday.",
+            a: ["play", "plays", "played", "playing"],
+            c: 2
+        },
+
+        {
+            q: "Choose the correct sentence.",
+            a: [
+                "He don't like tea.",
+                "He doesn't like tea.",
+                "He doesn't likes tea.",
+                "He not like tea."
+            ],
+            c: 1
+        },
+
+        {
+            q: "If I have time, I ___ you.",
+            a: ["call", "called", "will call", "calling"],
+            c: 2
         }
+    ];
 
+    window.levelQuestions = questions;
+    window.levelIndex = 0;
+    window.levelScore = 0;
 
-        if(feedback){
+    showLevelQuestion();
+};
 
-            feedback.textContent =
-                "❌ پاسخ اشتباه است. پاسخ صحیح مشخص شد.";
+function showLevelQuestion() {
 
-            feedback.className =
-                "feedback wrong";
+    const questions =
+        window.levelQuestions;
 
-        }
+    if (window.levelIndex >= questions.length) {
 
-    }
+        finishLevelExam();
 
-
-    const scoreText =
-        document.getElementById(
-            "scoreText"
-        );
-
-
-    if(scoreText){
-
-        scoreText.textContent =
-            "امتیاز: " +
-            quizScore;
-
-    }
-
-
-    const next =
-        document.getElementById(
-            "nextButton"
-        );
-
-
-    if(next){
-
-        next.style.display =
-            "inline-block";
-
-    }
-
-
-    saveProgress();
-
-}
-
-
-/* =====================================================
-   9. سؤال بعدی
-===================================================== */
-
-function nextQuestion(){
-
-    if(!answered){
         return;
     }
 
+    const q =
+        questions[window.levelIndex];
 
-    currentQuestion++;
+    document.getElementById("lessonArea").innerHTML = `
 
+        <div class="test-card">
 
-    if(
-        currentQuestion >=
-        quizQuestions.length
-    ){
+            <div class="test-header">
 
-        showResult();
+                🚀 آزمون ارتقای سطح
 
-    }
+                <span>
+                    ${window.levelIndex + 1}
+                    /
+                    ${questions.length}
+                </span>
 
-    else{
+            </div>
 
-        loadQuestion();
+            <h3>${q.q}</h3>
 
-    }
+            <div class="answers">
 
+                ${q.a.map((answer, index) => `
+
+                    <button
+                        class="answer-btn"
+                        onclick="answerLevel(${index})">
+
+                        ${answer}
+
+                    </button>
+
+                `).join("")}
+
+            </div>
+
+        </div>
+    `;
 }
 
+window.answerLevel = function(answer) {
 
-/* =====================================================
-   10. نتیجه
-===================================================== */
+    const q =
+        window.levelQuestions[
+            window.levelIndex
+        ];
 
-function showResult(){
-
-    const content =
-        document.getElementById(
-            "quizContent"
-        );
-
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-
-    if(content){
-        content.style.display =
-            "none";
+    if (answer === q.c) {
+        window.levelScore++;
     }
 
+    window.levelIndex++;
 
-    if(result){
-        result.style.display =
-            "block";
+    showLevelQuestion();
+};
+
+function finishLevelExam() {
+
+    const score =
+        window.levelScore;
+
+    let newLevel =
+        state.level;
+
+    if (score >= 4) {
+
+        const levels =
+            ["A1", "A2", "B1", "B2", "C1"];
+
+        const index =
+            levels.indexOf(state.level);
+
+        if (index < levels.length - 1) {
+            newLevel =
+                levels[index + 1];
+        }
     }
 
+    const promoted =
+        newLevel !== state.level;
 
-    const finalScore =
-        document.getElementById(
-            "finalScore"
-        );
+    state.level =
+        newLevel;
 
+    if (promoted) {
 
-    if(finalScore){
-
-        finalScore.textContent =
-            "امتیاز شما: " +
-            quizScore +
-            " از " +
-            quizQuestions.length;
-
+        state.progress =
+            Math.min(
+                100,
+                state.progress + 15
+            );
     }
 
+    saveState();
 
-    let levelText = "";
+    document.getElementById("lessonArea").innerHTML = `
 
+        <div class="result-card">
 
-    if(quizScore <= 2){
+            <h2>
+                ${promoted
+                    ? "🏆 تبریک! سطح جدید باز شد"
+                    : "📚 هنوز برای سطح بعد آماده نیستی"}
+            </h2>
 
-        levelText =
-            "A1 — مبتدی";
+            <p>
+                نتیجه:
+                ${score}/5
+            </p>
 
-    }
+            <p>
+                سطح فعلی:
+                <strong>${state.level}</strong>
+            </p>
 
-    else if(quizScore <= 4){
+            <button onclick="showDashboard()">
+                ادامه
+            </button>
 
-        levelText =
-            "A2 — پایه";
+        </div>
+    `;
 
-    }
-
-    else if(quizScore <= 6){
-
-        levelText =
-            "B1 — متوسط";
-
-    }
-
-    else if(quizScore <= 8){
-
-        levelText =
-            "B2 — متوسط رو به بالا";
-
-    }
-
-    else if(quizScore === 9){
-
-        levelText =
-            "C1 — پیشرفته";
-
-    }
-
-    else{
-
-        levelText =
-            "C2 — تسلط بسیار بالا";
-
-    }
-
-
-    const levelResult =
-        document.getElementById(
-            "levelResult"
-        );
-
-
-    if(levelResult){
-
-        levelResult.innerHTML =
-            `
-            سطح پیشنهادی شما:
-            <strong>${levelText}</strong>
-            `;
-
-    }
-
-
-    saveProgress();
-
+    renderProgress();
 }
 
+// =====================================
+// تلفظ
+// =====================================
 
-/* =====================================================
-   11. شروع دوباره آزمون
-===================================================== */
+function getPronunciation(word, language) {
 
-function restartQuiz(){
+    const pronunciations = {
 
-    currentQuestion = 0;
+        en: {
+            hello: "هِلُو",
+            book: "بوک",
+            house: "هاوس",
+            water: "واتِر",
+            friend: "فِرِند"
+        },
 
-    quizScore = 0;
+        de: {
+            Hallo: "هالو",
+            Buch: "بوخ",
+            Haus: "هاوس",
+            Wasser: "واسِر",
+            Freund: "فروینت"
+        },
 
-    answered = false;
+        es: {
+            hola: "اولا",
+            libro: "لیبرو",
+            casa: "کاسا",
+            agua: "آگوا",
+            amigo: "آمیگو"
+        },
 
+        fr: {
+            bonjour: "بونژور",
+            livre: "لیور",
+            maison: "مِزون",
+            eau: "او",
+            ami: "آمی"
+        },
 
-    const content =
-        document.getElementById(
-            "quizContent"
-        );
+        it: {
+            ciao: "چائو",
+            libro: "لیبرو",
+            casa: "کازا",
+            acqua: "آکوا",
+            amico: "آمیکو"
+        }
+    };
 
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-
-    if(content){
-
-        content.style.display =
-            "block";
-
-    }
-
-
-    if(result){
-
-        result.style.display =
-            "none";
-
-    }
-
-
-    loadQuestion();
-
+    return (
+        pronunciations[language] &&
+        pronunciations[language][word]
+    ) || word;
 }
 
+window.startPronunciation = function() {
 
-/* =====================================================
-   12. تمرین‌ها
-===================================================== */
+    const course =
+        courses[selectedLanguage];
 
-function exerciseMessage(type){
+    document.getElementById("lessonArea").innerHTML = `
 
-    let message = "";
+        <div class="pronunciation-card">
 
+            <h2>🗣️ تمرین تلفظ</h2>
 
-    if(type === "vocabulary"){
+            <p>
+                روی هر کلمه بزن تا تلفظ آن را بشنوی.
+            </p>
 
-        message =
-            "🧠 تمرین واژگان به‌زودی فعال می‌شود.";
+            <div class="pronunciation-list">
 
-    }
+                ${course.words.map(word => `
 
-    else if(type === "grammar"){
+                    <div class="pronunciation-item">
 
-        message =
-            "📖 تمرین گرامر به‌زودی فعال می‌شود.";
+                        <strong>
+                            ${word[0]}
+                        </strong>
 
-    }
+                        <span>
+                            ${getPronunciation(
+                                word[0],
+                                selectedLanguage
+                            )}
+                        </span>
 
-    else if(type === "listening"){
+                        <button
+                            onclick="speakWord('${escapeSpeech(word[0])}')">
 
-        message =
-            "🎧 تمرین شنیداری به‌زودی فعال می‌شود.";
+                            🔊
 
-    }
+                        </button>
 
-    else if(type === "speaking"){
+                    </div>
 
-        message =
-            "🗣️ تمرین مکالمه به‌زودی فعال می‌شود.";
+                `).join("")}
 
-    }
+            </div>
 
+        </div>
+    `;
+};
 
-    alert(message);
+window.speakWord = function(word) {
 
-}
+    if (!("speechSynthesis" in window)) {
 
-
-/* =====================================================
-   13. منوی موبایل
-===================================================== */
-
-function toggleMenu(){
-
-    const nav =
-        document.querySelector(
-            ".nav"
+        alert(
+            "مرورگر شما از تلفظ صوتی پشتیبانی نمی‌کند."
         );
 
-
-    if(nav){
-
-        nav.classList.toggle(
-            "open"
-        );
-
+        return;
     }
 
+    const utterance =
+        new SpeechSynthesisUtterance(word);
+
+    utterance.lang =
+        getSpeechLanguage(selectedLanguage);
+
+    utterance.rate = 0.8;
+
+    speechSynthesis.cancel();
+
+    speechSynthesis.speak(utterance);
+};
+
+function getSpeechLanguage(language) {
+
+    const map = {
+
+        en: "en-US",
+        de: "de-DE",
+        es: "es-ES",
+        fr: "fr-FR",
+        it: "it-IT",
+        pt: "pt-PT",
+        ru: "ru-RU",
+        tr: "tr-TR",
+        ar: "ar-SA",
+        ja: "ja-JP",
+        ko: "ko-KR",
+        zh: "zh-CN",
+        nl: "nl-NL",
+        sv: "sv-SE",
+        pl: "pl-PL",
+        el: "el-GR",
+        hi: "hi-IN",
+        no: "nb-NO",
+        da: "da-DK",
+        fi: "fi-FI"
+    };
+
+    return map[language] || "en-US";
 }
 
+// =====================================
+// پیشرفت
+// =====================================
 
-/* =====================================================
-   14. راه‌اندازی
-===================================================== */
+function updateProgress() {
+
+    const course =
+        courses[selectedLanguage];
+
+    const wordProgress =
+        (
+            state.learnedWords /
+            course.words.length
+        ) * 100;
+
+    state.progress =
+        Math.max(
+            state.progress,
+            Math.min(100, Math.round(wordProgress))
+        );
+
+    saveState();
+
+    renderProgress();
+}
+
+function renderProgress() {
+
+    if (!selectedLanguage) {
+
+        progressGrid.innerHTML = `
+
+            <div class="progress-empty">
+
+                🌱 یک زبان انتخاب کن
+                تا پیشرفتت اینجا نمایش داده شود.
+
+            </div>
+        `;
+
+        return;
+    }
+
+    const language =
+        languages.find(
+            item => item.id === selectedLanguage
+        );
+
+    progressGrid.innerHTML = `
+
+        <div class="progress-card">
+
+            <div class="progress-language">
+
+                ${language.flag}
+
+                <strong>
+                    ${language.name}
+                </strong>
+
+            </div>
+
+            <p>
+                سطح:
+                <strong>${state.level}</strong>
+            </p>
+
+            <p>
+                کلمات یادگرفته‌شده:
+                <strong>
+                    ${state.learnedWords}
+                </strong>
+            </p>
+
+            <p>
+                آزمون‌های قبول‌شده:
+                <strong>
+                    ${state.examsPassed}
+                </strong>
+            </p>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    style="width:${state.progress}%">
+                </div>
+
+            </div>
+
+            <strong>
+                ${state.progress}%
+            </strong>
+
+        </div>
+    `;
+}
+
+// =====================================
+// ابزارها
+// =====================================
+
+function shuffle(array) {
+
+    const copy =
+        [...array];
+
+    for (
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            copy[i],
+            copy[j]
+        ] = [
+            copy[j],
+            copy[i]
+        ];
+    }
+
+    return copy;
+}
+
+function escapeSpeech(text) {
+
+    return String(text)
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+}
+
+// =====================================
+// شروع برنامه
+// =====================================
 
 document.addEventListener(
     "DOMContentLoaded",
-    function(){
+    () => {
 
-        loadProgress();
+        renderLanguages();
 
-        updatePronunciation();
+        renderProgress();
 
-        loadQuestion();
-
+        console.log(
+            "ZabanPro successfully loaded 🚀"
+        );
     }
 );
