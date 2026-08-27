@@ -1,1 +1,567 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZabanPro | آموزش هوشمند زبان</title>
 
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Tahoma,Arial,sans-serif;
+  background:#eaf7ff;
+  color:#123047;
+}
+
+header{
+  background:linear-gradient(135deg,#8bd8ff,#dff6ff);
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 4px 18px #79c9e544;
+}
+
+.logo{
+  font-size:28px;
+  font-weight:bold;
+  color:#087db5;
+}
+
+nav a{
+  text-decoration:none;
+  color:#164c68;
+  margin:0 10px;
+  font-weight:bold;
+}
+
+.hero{
+  min-height:570px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:70px 20px;
+  background:linear-gradient(180deg,#b9eaff,#eefaff);
+}
+
+.hero h1{
+  font-size:52px;
+  color:#087db5;
+  margin-bottom:20px;
+}
+
+.hero p{
+  font-size:21px;
+  max-width:700px;
+  margin:auto;
+  line-height:2;
+}
+
+.btn{
+  display:inline-block;
+  margin-top:30px;
+  padding:15px 30px;
+  border-radius:15px;
+  border:none;
+  background:#078bd0;
+  color:white;
+  font-size:17px;
+  cursor:pointer;
+  text-decoration:none;
+  box-shadow:0 7px 20px #078bd044;
+}
+
+section{
+  padding:70px 7%;
+}
+
+.title{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.title h2{
+  font-size:34px;
+  color:#087db5;
+  margin-bottom:12px;
+}
+
+.title p{
+  color:#527084;
+}
+
+.languages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:18px;
+}
+
+.language{
+  background:white;
+  border:2px solid transparent;
+  border-radius:20px;
+  padding:24px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 8px 25px #6dbbd522;
+}
+
+.language:hover{
+  transform:translateY(-6px);
+  border-color:#72cfff;
+}
+
+.language .flag{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.language h3{
+  color:#145d7e;
+}
+
+.features{
+  background:#dff5ff;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+
+.feature{
+  background:white;
+  padding:30px;
+  border-radius:22px;
+  text-align:center;
+  box-shadow:0 8px 25px #5caaca22;
+}
+
+.feature-icon{
+  font-size:45px;
+  margin-bottom:18px;
+}
+
+.feature h3{
+  margin-bottom:12px;
+  color:#087db5;
+}
+
+.feature p{
+  line-height:1.8;
+  color:#617b89;
+}
+
+.levels{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:15px;
+}
+
+.level{
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+  border:2px solid #b7e8ff;
+}
+
+.level strong{
+  display:block;
+  font-size:25px;
+  color:#087db5;
+  margin-bottom:8px;
+}
+
+.quiz{
+  max-width:800px;
+  margin:auto;
+  background:white;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 10px 30px #54aaca22;
+}
+
+.question{
+  font-size:21px;
+  margin-bottom:25px;
+  line-height:1.8;
+}
+
+.option{
+  width:100%;
+  padding:15px;
+  margin:9px 0;
+  border:2px solid #c7ebfa;
+  border-radius:13px;
+  background:#f7fdff;
+  cursor:pointer;
+  text-align:right;
+  font-size:16px;
+}
+
+.option:hover{
+  background:#e1f6ff;
+  border-color:#65c8ef;
+}
+
+#result{
+  margin-top:20px;
+  font-size:20px;
+  font-weight:bold;
+  color:#087db5;
+}
+
+footer{
+  background:#087db5;
+  color:white;
+  text-align:center;
+  padding:35px;
+}
+
+@media(max-width:700px){
+  .hero h1{
+    font-size:38px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  section{
+    padding:50px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ZabanPro</div>
+
+  <nav>
+    <a href="#languages">زبان‌ها</a>
+    <a href="#features">امکانات</a>
+    <a href="#levels">سطح‌ها</a>
+    <a href="#quiz">تعیین سطح</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <h1>ZabanPro</h1>
+
+    <p>
+      یادگیری زبان، مرحله‌به‌مرحله و متناسب با سطح تو.
+      زبان مورد علاقه‌ات را انتخاب کن، تعیین سطح بده
+      و مسیر یادگیری خودت را شروع کن.
+    </p>
+
+    <a class="btn" href="#languages">
+      شروع یادگیری
+    </a>
+  </div>
+</section>
+
+
+<section id="languages">
+
+  <div class="title">
+    <h2>زبان مورد نظرت را انتخاب کن</h2>
+    <p>۲۰ زبان محبوب جهان در ZabanPro</p>
+  </div>
+
+  <div class="languages">
+
+    <div class="language" onclick="selectLanguage('انگلیسی')">
+      <div class="flag">🇬🇧</div>
+      <h3>انگلیسی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('اسپانیایی')">
+      <div class="flag">🇪🇸</div>
+      <h3>اسپانیایی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('فرانسوی')">
+      <div class="flag">🇫🇷</div>
+      <h3>فرانسوی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('آلمانی')">
+      <div class="flag">🇩🇪</div>
+      <h3>آلمانی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('ایتالیایی')">
+      <div class="flag">🇮🇹</div>
+      <h3>ایتالیایی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('پرتغالی')">
+      <div class="flag">🇵🇹</div>
+      <h3>پرتغالی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('روسی')">
+      <div class="flag">🇷🇺</div>
+      <h3>روسی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('عربی')">
+      <div class="flag">🇸🇦</div>
+      <h3>عربی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('ترکی')">
+      <div class="flag">🇹🇷</div>
+      <h3>ترکی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('ژاپنی')">
+      <div class="flag">🇯🇵</div>
+      <h3>ژاپنی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('کره‌ای')">
+      <div class="flag">🇰🇷</div>
+      <h3>کره‌ای</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('چینی')">
+      <div class="flag">🇨🇳</div>
+      <h3>چینی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('هلندی')">
+      <div class="flag">🇳🇱</div>
+      <h3>هلندی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('سوئدی')">
+      <div class="flag">🇸🇪</div>
+      <h3>سوئدی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('یونانی')">
+      <div class="flag">🇬🇷</div>
+      <h3>یونانی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('هندی')">
+      <div class="flag">🇮🇳</div>
+      <h3>هندی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('لهستانی')">
+      <div class="flag">🇵🇱</div>
+      <h3>لهستانی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('اوکراینی')">
+      <div class="flag">🇺🇦</div>
+      <h3>اوکراینی</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('عبری')">
+      <div class="flag">🇮🇱</div>
+      <h3>عبری</h3>
+    </div>
+
+    <div class="language" onclick="selectLanguage('فارسی')">
+      <div class="flag">🇮🇷</div>
+      <h3>فارسی</h3>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="features" class="features">
+
+  <div class="title">
+    <h2>سیستم یادگیری ZabanPro</h2>
+    <p>همه چیز برای ساختن مسیر یادگیری شخصی تو</p>
+  </div>
+
+  <div class="feature-grid">
+
+    <div class="feature">
+      <div class="feature-icon">🎯</div>
+      <h3>آزمون تعیین سطح</h3>
+      <p>
+        قبل از شروع، یک آزمون ۱۰ سؤالی
+        سطح فعلی زبان تو را مشخص می‌کند.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📚</div>
+      <h3>مسیر یادگیری</h3>
+      <p>
+        بعد از تعیین سطح، مسیر آموزشی
+        مناسب تو از A1 تا C2 مشخص می‌شود.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">🗣️</div>
+      <h3>تلفظ</h3>
+      <p>
+        تمرین کلمات و جمله‌ها برای تقویت
+        تلفظ و مهارت شنیداری.
+      </p>
+    </div>
+
+    <div class="feature">
+      <div class="feature-icon">📝</div>
+      <h3>تمرین و امتحان</h3>
+      <p>
+        تمرین‌های مختلف و آزمون‌های پایان
+        درس برای بررسی پیشرفت.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="levels">
+
+  <div class="title">
+    <h2>سطح‌های آموزشی</h2>
+    <p>از اولین کلمه تا سطح پیشرفته</p>
+  </div>
+
+  <div class="levels">
+
+    <div class="level">
+      <strong>A1</strong>
+      مبتدی
+    </div>
+
+    <div class="level">
+      <strong>A2</strong>
+      پایه
+    </div>
+
+    <div class="level">
+      <strong>B1</strong>
+      متوسط
+    </div>
+
+    <div class="level">
+      <strong>B2</strong>
+      متوسط رو به بالا
+    </div>
+
+    <div class="level">
+      <strong>C1</strong>
+      پیشرفته
+    </div>
+
+    <div class="level">
+      <strong>C2</strong>
+      تسلط
+    </div>
+
+  </div>
+
+</section>
+
+
+<section id="quiz">
+
+  <div class="title">
+    <h2>🎯 آزمون تعیین سطح</h2>
+    <p>نمونه آزمون انگلیسی — سؤال اول از ۱۰</p>
+  </div>
+
+  <div class="quiz">
+
+    <div class="question">
+      Which sentence is correct?
+    </div>
+
+    <button class="option" onclick="answer(false)">
+      A) She go to school every day.
+    </button>
+
+    <button class="option" onclick="answer(true)">
+      B) She goes to school every day.
+    </button>
+
+    <button class="option" onclick="answer(false)">
+      C) She going to school every day.
+    </button>
+
+    <button class="option" onclick="answer(false)">
+      D) She gone to school every day.
+    </button>
+
+    <div id="result"></div>
+
+  </div>
+
+</section>
+
+
+<footer>
+  <h2>ZabanPro</h2>
+  <p>یادگیری زبان، قدم‌به‌قدم.</p>
+</footer>
+
+
+<script>
+
+function selectLanguage(language){
+
+  alert(
+    "زبان " + language +
+    " انتخاب شد! 🎉\n\n" +
+    "مرحله بعد: آزمون تعیین سطح ۱۰ سؤالی"
+  );
+
+  document
+    .getElementById("quiz")
+    .scrollIntoView({
+      behavior:"smooth"
+    });
+}
+
+
+function answer(correct){
+
+  const result =
+    document.getElementById("result");
+
+  if(correct){
+
+    result.innerHTML =
+      "✅ پاسخ درست است!";
+
+  }else{
+
+    result.innerHTML =
+      "❌ پاسخ درست نیست. ادامه بده!";
+
+  }
+
+}
+
+</script>
+
+</body>
+      </html>
